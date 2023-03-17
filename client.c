@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
+#include <stdlib.h>
 
-int main (void)
+int main (__attribute__ ((unused)) int argc, char *argv[])
 {
-	kill(6073, SIGKILL); //Use to send signal to the PID
+	kill(atoi(argv[1]), SIGKILL); //Use to send signal to the PID
 
 	return 0;
 }
