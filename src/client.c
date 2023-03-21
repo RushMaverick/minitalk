@@ -1,14 +1,26 @@
 #include <stdio.h>
 #include <signal.h>
-#include <unistd.h>
+#include <unistd.h> //getpid, sleep
 #include <stdlib.h>
-#include "libft.h"
 
-static void *handle_string(int pid, char *msg)
+static void handle_string(int pid, char *msg)
 {
-	int bit;
-	bit = 0x10000000;
+	char bin_rep;
+	int i;
 
+	bin_rep = 0b10000000;
+	i = 0;
+	
+	while (i != 8)
+	{
+		if ((msg[i] & bin_rep) == 0)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		bin_rep = bin_rep >> 1;	// This is not causing it to loop. 
+		i++;
+	}
+	i = 0;
 	// while ();
 }
 
@@ -19,7 +31,7 @@ int main (int argc, char *argv[])
 		printf("%s\n", "dude no");
 		return (0);
 	}
-	handle_string(ft_atoi(argv[1]), argv[2]);
+	handle_string(atoi(argv[1]), argv[2]);
 	
 	return 0;
 }

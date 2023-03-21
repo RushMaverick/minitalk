@@ -2,12 +2,12 @@
 #include <signal.h>
 #include <unistd.h>
 
-void sig1handler(__attribute__ ((unused))int sig)
+void sig1handler(__attribute__((unused))int sig)
 {
 	printf("%s\n", "I have handled SIGUSR1");
 }
 
-void sig2handler(__attribute__ ((unused))int sig)
+void sig2handler(__attribute__((unused))int sig)
 {
 	printf("%s\n", "I have handled SIGUSR2");
 }
@@ -15,17 +15,21 @@ void sig2handler(__attribute__ ((unused))int sig)
 int main (void)
 {
 	struct sigaction sa;
+
 	sa.sa_handler = &sig1handler;
-	// sa.sa_handler = &sig2handler;
-	sigaction(SIGUSR1, &sa, NULL);
-	// sigaction(SIGUSR2, &sa, NULL);
+	sigemptyset(&(sa.sa_mask));
+	sa.sa_flags = 0;
+
+	sa.sa_handler = &sig2handler;
+	sigemptyset(&(sa.sa_mask));
+	sa.sa_flags = 0;
+
 	int pid;
 
 	pid = getpid();
-	while (pid)
+	while (1)
 	{
 		printf("PID is %d\n", pid);
-		sleep(2);
+		pause();
 	}
-	return 0;
 }
