@@ -2,25 +2,30 @@
 #include <signal.h>
 #include <unistd.h> //getpid, sleep
 #include <stdlib.h>
+#include "../includes/libft.h"
 
 static void handle_string(int pid, char *msg)
 {
-	char bin_rep;
+	int bin_rep;
 	int i;
 
 	bin_rep = 0b10000000;
 	i = 0;
 	
-	while (i != 8)
+	while (*msg != '\0')
 	{
-		if ((msg[i] & bin_rep) == 0)
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		bin_rep = bin_rep >> 1;	// This is not causing it to loop. 
-		i++;
+		while (i != 8)
+		{
+			if ((msg[i] & bin_rep) == 0)
+				kill(pid, SIGUSR1);
+			else
+				kill(pid, SIGUSR2);
+			bin_rep >>= 1;
+			i++;
+		}
+		i = 0;
+		msg++;
 	}
-	i = 0;
 	// while ();
 }
 

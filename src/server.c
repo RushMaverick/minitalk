@@ -2,29 +2,27 @@
 #include <signal.h>
 #include <unistd.h>
 
-void sig1handler(__attribute__((unused))int sig)
+void sighandler(int sig)
 {
-	printf("%s\n", "I have handled SIGUSR1");
-}
-
-void sig2handler(__attribute__((unused))int sig)
-{
-	printf("%s\n", "I have handled SIGUSR2");
+	if (sig == SIGUSR1)
+		printf("%s\n", "that's a 0");
+	if (sig == SIGUSR2)
+		printf("%s\n", "that's a 1");
+	
 }
 
 int main (void)
 {
+	int pid;
+
 	struct sigaction sa;
 
-	sa.sa_handler = &sig1handler;
+	sa.sa_handler = &sighandler;
 	sigemptyset(&(sa.sa_mask));
 	sa.sa_flags = 0;
 
-	sa.sa_handler = &sig2handler;
-	sigemptyset(&(sa.sa_mask));
-	sa.sa_flags = 0;
-
-	int pid;
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 
 	pid = getpid();
 	while (1)
