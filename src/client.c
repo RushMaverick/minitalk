@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include <signal.h>
 #include <unistd.h> //getpid, sleep
 #include <stdlib.h>
-#include "../includes/libft.h"
+#include "includes/libft.h"
 
 static void handle_string(int pid, char *msg)
 {
@@ -20,12 +19,12 @@ static void handle_string(int pid, char *msg)
 			if ((*msg & bin_rep >> i) == 0)
 			{
 				kill(pid, SIGUSR1);
-				usleep(500);
+				usleep(256);
 			}
 			else
 			{
 				kill(pid, SIGUSR2);
-				usleep(500);
+				usleep(256);
 			}
 			i++;
 		}
@@ -41,7 +40,7 @@ int main (int argc, char *argv[])
 		printf("%s\n", "dude no");
 		return (0);
 	}
-	handle_string(atoi(argv[1]), argv[2]);
+	handle_string(ft_atoi(argv[1]), argv[2]);
 	
 	return 0;
 }

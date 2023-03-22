@@ -2,7 +2,7 @@
 #include <signal.h>
 #include <unistd.h>
 
-char *msg;
+char *g_msg;
 
 void sighandler(int sig)
 {
@@ -17,8 +17,11 @@ void sighandler(int sig)
 	bin_rep >>= 1;
 	count++;
 	if (count == 8)
-		printf("%c", c);
-	// printf("%c\n", c);
+	{
+		printf("%c\n", c);
+		count = 0;
+		c = 0;
+	}
 }
 
 int main (void)
@@ -31,13 +34,13 @@ int main (void)
 	sigemptyset(&(sa.sa_mask));
 	sigaddset(&(sa.sa_mask), SIGUSR1);
 	sigaddset(&(sa.sa_mask), SIGUSR2);
-	sa.sa_flags = 0;
-	
+	sa.sa_flags = SA_RESTART;
+
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 
 	pid = getpid();
-	printf("PID is %d\n", pid); // 22.03 If I have this in the while loop it works
+	printf("PID is %d\n", pid);
 	while (1)
 	{
 		pause();
