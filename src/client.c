@@ -9,24 +9,29 @@ static void handle_string(int pid, char *msg)
 	int bin_rep;
 	int i;
 
-	bin_rep = 0b10000000;
+	bin_rep = 0b10000000; 
+			//	01000001
 	i = 0;
 	
 	while (*msg != '\0')
 	{
 		while (i != 8)
 		{
-			if ((msg[i] & bin_rep) == 0)
+			if ((*msg & bin_rep >> i) == 0)
+			{
 				kill(pid, SIGUSR1);
+				usleep(500);
+			}
 			else
+			{
 				kill(pid, SIGUSR2);
-			bin_rep >>= 1;
+				usleep(500);
+			}
 			i++;
 		}
 		i = 0;
 		msg++;
 	}
-	// while ();
 }
 
 int main (int argc, char *argv[])

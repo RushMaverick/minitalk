@@ -2,13 +2,23 @@
 #include <signal.h>
 #include <unistd.h>
 
+char *msg;
+
 void sighandler(int sig)
 {
-	if (sig == SIGUSR1)
-		printf("%s\n", "that's a 0");
+	static char c = 0;
+	static int count = 0;
+	static int bin_rep = 0b10000000;
+
 	if (sig == SIGUSR2)
-		printf("%s\n", "that's a 1");
-	
+	{
+		c = c | bin_rep;
+	}
+	bin_rep >>= 1;
+	count++;
+	if (count == 8)
+		printf("%c", c);
+	// printf("%c\n", c);
 }
 
 int main (void)
@@ -19,15 +29,19 @@ int main (void)
 
 	sa.sa_handler = &sighandler;
 	sigemptyset(&(sa.sa_mask));
+	sigaddset(&(sa.sa_mask), SIGUSR1);
+	sigaddset(&(sa.sa_mask), SIGUSR2);
 	sa.sa_flags = 0;
-
+	
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 
 	pid = getpid();
+	printf("PID is %d\n", pid); // 22.03 If I have this in the while loop it works
 	while (1)
 	{
-		printf("PID is %d\n", pid);
 		pause();
+		// usleep(500);
 	}
+		
 }
