@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
+#include "../includes/libft.h"
 
 char *g_msg;
 
@@ -21,6 +22,7 @@ void sighandler(int sig)
 		printf("%c\n", c);
 		count = 0;
 		c = 0;
+		bin_rep = 0b10000000;
 	}
 }
 
@@ -44,7 +46,6 @@ int main (void)
 	while (1)
 	{
 		pause();
-		// usleep(500);
 	}
 		
 }

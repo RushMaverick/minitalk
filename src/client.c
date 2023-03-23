@@ -1,7 +1,8 @@
 #include <signal.h>
+#include <stdio.h>
 #include <unistd.h> //getpid, sleep
 #include <stdlib.h>
-#include "includes/libft.h"
+#include "../includes/libft.h"
 
 static void handle_string(int pid, char *msg)
 {
