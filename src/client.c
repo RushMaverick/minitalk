@@ -8,10 +8,12 @@ static void handle_string(int pid, char *msg)
 {
 	int bin_rep;
 	int i;
+	int finish;
 
 	bin_rep = 0b10000000; 
 			//	01000001
 	i = 0;
+	finish = 8;
 	
 	while (*msg != '\0')
 	{
@@ -31,6 +33,13 @@ static void handle_string(int pid, char *msg)
 		}
 		i = 0;
 		msg++;
+	}
+	
+	while(finish)
+	{
+		kill(pid, SIGUSR1);
+		usleep(256);
+		finish--;
 	}
 }
 
