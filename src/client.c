@@ -4,17 +4,13 @@
 #include <stdlib.h>
 #include "../includes/libft.h"
 
-static void handle_string(int pid, char *msg)
+static void msghandler(int pid, char *msg)
 {
 	int bin_rep;
 	int i;
-	int finish;
 
-	bin_rep = 0b10000000; 
-			//	01000001
 	i = 0;
-	finish = 8;
-	
+	bin_rep = 0b10000000; 
 	while (*msg != '\0')
 	{
 		while (i != 8)
@@ -34,7 +30,14 @@ static void handle_string(int pid, char *msg)
 		i = 0;
 		msg++;
 	}
-	
+}
+
+static void handle_string(int pid, char *msg)
+{
+	int finish;
+
+	finish = 8;
+	msghandler(pid, msg);
 	while(finish)
 	{
 		kill(pid, SIGUSR1);

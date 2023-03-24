@@ -13,11 +13,8 @@ void sighandler(int sig)
 	static char ctostr[2];
 
 	ctostr[1] = '\0';
-	// while (!time) flip time int if usleep takes longer than clients usleep
 	if (sig == SIGUSR2)
-	{
 		c = c | bin_rep;
-	}
 	bin_rep >>= 1;
 	count++;
 	if (count == 8)
@@ -25,7 +22,7 @@ void sighandler(int sig)
 		ctostr[0] = c;
 		if (c == '\0')
 		{
-			printf("%s\n", g_msg);
+			printf("%s\n", g_msg); //CHANGE TO OWN PRINTF
 			free(g_msg);
 		}
 		g_msg = ft_strjoin(g_msg, ctostr);
@@ -38,14 +35,11 @@ void sighandler(int sig)
 int main (void)
 {
 	int pid;
-	
 	struct sigaction sa;
 
 	g_msg = malloc(sizeof(char) * 2);
-
 	if (!g_msg)
 		return(0);
-
 	sa.sa_handler = &sighandler;
 	sigemptyset(&(sa.sa_mask));
 	sigaddset(&(sa.sa_mask), SIGUSR1);
@@ -56,7 +50,6 @@ int main (void)
 	sigaction(SIGUSR2, &sa, NULL);
 
 	pid = getpid();
-
 	printf("PID is %d\n", pid);
 	while (pause())
 	{
