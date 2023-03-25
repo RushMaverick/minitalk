@@ -6,11 +6,9 @@
 
 static void msghandler(int pid, char *msg)
 {
-	int bin_rep;
-	int i;
+	static int bin_rep = 0b10000000;
+	static int i = 0;
 
-	i = 0;
-	bin_rep = 0b10000000; 
 	while (*msg != '\0')
 	{
 		while (i != 8)
@@ -48,12 +46,26 @@ static void handle_string(int pid, char *msg)
 
 int main (int argc, char *argv[])
 {
-	if (argc < 2)
+	int pid;
+	char *msg;
+
+	if (argc <= 1)
 	{
-		printf("%s\n", "dude no");
+		printf("%s\n", "No arguments given.");
 		return (0);
 	}
-	handle_string(ft_atoi(argv[1]), argv[2]);
+
+	pid = ft_atoi(argv[1]);
+	msg = argv[2];
+
+	if (argc <= 2)
+	{
+		printf("%s\n", "Remember to attach a message.");
+		return (0);
+	}
+	if (kill(pid, 0) == -1)
+		printf("%s\n", "Invalid PID.");
+	handle_string(pid, msg);
 	
-	return 0;
+	return (0);
 }
