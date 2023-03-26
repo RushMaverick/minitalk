@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:32:50 by rrask             #+#    #+#             */
-/*   Updated: 2022/12/14 17:19:12 by rrask            ###   ########.fr       */
+/*   Updated: 2022/12/09 13:36:32 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(*str))
 	{
 		res = res * 10 + *str - '0';
-		if (res * sign > RAS_MAX)
+		if (res * sign > INT_MAX)
 			return (-1);
-		else if (res * sign < RAS_MIN)
+		else if (res * sign < INT_MIN)
 			return (0);
 		str++;
 	}

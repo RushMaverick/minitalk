@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:52:59 by rrask             #+#    #+#             */
-/*   Updated: 2022/12/14 15:59:40 by rrask            ###   ########.fr       */
+/*   Updated: 2022/12/05 18:32:23 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	if (a > b)
 	{
 		while (n--)
+		{
 			a[n] = b[n];
+		}
 	}
 	else
 	{

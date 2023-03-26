@@ -5,7 +5,7 @@ I = includes/
 
 CLIENT = client
 SERVER = server
-LIBFT = $I/libft.a
+LIBFT = $I/libftprintf.a
 
 SERVER_SRC = $S/server.c
 CLIENT_SRC = $S/client.c

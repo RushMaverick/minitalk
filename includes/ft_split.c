@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:08:21 by rrask             #+#    #+#             */
-/*   Updated: 2022/12/14 17:17:50 by rrask            ###   ########.fr       */
+/*   Updated: 2022/12/09 13:24:51 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	wordcount(char const *s, char c)
 	return (count);
 }
 
-static char	**writeuntilc(const char *s, int c, char **strarr)
+char	**writeuntilc(const char *s, int c, char **strarr)
 {
 	int		i;
 	char	*begin;

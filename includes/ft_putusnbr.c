@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putusnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 11:34:02 by rrask             #+#    #+#             */
-/*   Updated: 2022/11/02 17:52:21 by rrask            ###   ########.fr       */
+/*   Created: 2023/01/05 15:09:44 by rrask             #+#    #+#             */
+/*   Updated: 2023/01/10 16:13:42 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isalnum(size_t c)
+int	ft_putusnbr(unsigned int c)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-	{
-		return (1);
-	}
-	else if ((c >= 48 && c <= 57))
-	{
-		return (2);
-	}
-	return (0);
+	int	pr_len;
+
+	pr_len = 0;
+	if (c > 9)
+		pr_len += ft_putusnbr(c / 10);
+	pr_len += ft_putchar_print(c % 10 + '0');
+	return (pr_len);
 }

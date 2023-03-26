@@ -6,11 +6,12 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:53:03 by rrask             #+#    #+#             */
-/*   Updated: 2022/12/14 17:18:48 by rrask            ###   ########.fr       */
+/*   Updated: 2022/12/12 11:53:12 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

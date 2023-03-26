@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putvoid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 11:34:02 by rrask             #+#    #+#             */
-/*   Updated: 2022/11/02 17:52:21 by rrask            ###   ########.fr       */
+/*   Created: 2023/01/09 16:56:02 by rrask             #+#    #+#             */
+/*   Updated: 2023/01/11 12:11:53 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isalnum(size_t c)
+int	ft_putvoid(void *s)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-	{
-		return (1);
-	}
-	else if ((c >= 48 && c <= 57))
-	{
-		return (2);
-	}
-	return (0);
+	int	pr_len;
+
+	pr_len = 0;
+	pr_len += write(1, "0x", 2);
+	pr_len += ft_hexsmol((unsigned long long)s);
+	return (pr_len);
 }

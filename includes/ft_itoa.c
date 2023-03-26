@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 14:57:01 by rrask             #+#    #+#             */
-/*   Updated: 2022/12/14 17:37:24 by rrask            ###   ########.fr       */
+/*   Updated: 2022/12/09 16:22:50 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,20 @@
 static int	inputlen(int n)
 {
 	int		len;
+	int		flip;
 	long	newn;
 
 	len = 0;
+	flip = -1;
 	newn = (long)n;
 	if (n == 0)
 		return (1);
 	if (newn < 0)
+	{
+		newn = newn * flip;
 		len++;
-	while (newn != 0)
+	}
+	while (newn > 0)
 	{
 		newn /= 10;
 		len++;

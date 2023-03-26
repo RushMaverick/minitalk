@@ -6,13 +6,13 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:57:01 by rrask             #+#    #+#             */
-/*   Updated: 2022/12/14 17:48:24 by rrask            ###   ########.fr       */
+/*   Updated: 2022/11/13 17:21:51 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	size_t	i;
 
