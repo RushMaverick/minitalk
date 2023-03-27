@@ -51,7 +51,7 @@ int main (int argc, char *argv[])
 
 	if (argc <= 1)
 	{
-		printf("%s\n", "No arguments given.");
+		ft_printf("%s\n", "No arguments given.");
 		return (0);
 	}
 
@@ -60,11 +60,11 @@ int main (int argc, char *argv[])
 
 	if (argc <= 2)
 	{
-		printf("%s\n", "Remember to attach a message.");
+		ft_printf("%s\n", "Remember to attach a message.");
 		return (0);
 	}
 	if (kill(pid, 0) == -1)
-		printf("%s\n", "Invalid PID.");
+		ft_printf("%s\n", "Invalid PID.");
 	handle_string(pid, msg);
 	
 	return (0);

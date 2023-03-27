@@ -6,13 +6,14 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:26:27 by rrask             #+#    #+#             */
-/*   Updated: 2022/12/09 16:12:24 by rrask            ###   ########.fr       */
+/*   Updated: 2023/03/27 10:57:25 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <stdarg.h>
 # include <unistd.h>
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -51,5 +52,20 @@ int		ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+int		ft_printf(const char *s, ...);
+int		ft_putstr_print(char *s);
+int		ft_putchar_print(char c);
+int		ft_putnbr_print(int c);
+int		handle_s(char *s);
+int		handle_c(char c);
+int		handle_num(int c);
+int		handle_void(void *v);
+int		handle_hexsmol(unsigned int i);
+int		handle_hexbig(unsigned int i);
+int		handle_unsign(unsigned int c);
+int		ft_hexsmol(unsigned long long i);
+int		ft_hexbig(unsigned long long i);
+int		ft_putusnbr(unsigned int c);
+int		ft_putvoid(void *v);
 
 #endif

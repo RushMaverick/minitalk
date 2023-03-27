@@ -21,7 +21,7 @@ all:  $(NAME)
 
 $(NAME): 
 	cc -Wall -Wextra -Werror -c $(SRC) $(LIBFT_FILES) 
-	ar rc $(NAME) $(SRC:.c=.o) $(NAME)
+	ar rc $(NAME) $(SRC:.c=.o) $(LIBFT_FILES:.c=.o) $(NAME)
 
 clean:
 	rm -f $(SRC:.c=.o) $(LIBFT_FILES:.c=.o) 

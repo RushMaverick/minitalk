@@ -22,7 +22,7 @@ void sighandler(int sig)
 		ctostr[0] = c;
 		if (c == '\0')
 		{
-			printf("%s\n", g_msg); //CHANGE TO OWN PRINTF
+			ft_printf("%s\n", g_msg); //CHANGE TO OWN PRINTF
 			free(g_msg);
 		}
 		g_msg = ft_strjoin(g_msg, ctostr);
@@ -48,7 +48,7 @@ int main (void)
 	sigaction(SIGUSR2, &sa, NULL);
 
 	pid = getpid();
-	printf("PID is %d\n", pid);
+	ft_printf("PID is %d\n", pid);
 	while (pause())
 	{
 

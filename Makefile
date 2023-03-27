@@ -18,10 +18,10 @@ $(LIBFT):
 	make -C includes all
 
 $(SERVER): $(SERVER_SRC) $(LIBFT)
-	cc $(C_FLAGS) $(SERVER_SRC) -o $(SERVER) $(LIBFT)
+	cc $(C_FLAGS) $(SERVER_SRC) $(LIBFT) -o $(SERVER) 
 
 $(CLIENT): $(CLIENT_SRC) $(LIBFT)
-	cc $(C_FLAGS) $(CLIENT_SRC) -o $(CLIENT) $(LIBFT)
+	cc $(C_FLAGS) $(CLIENT_SRC) $(LIBFT) -o $(CLIENT) 
 
 clean:
 	make -C includes clean
