@@ -22,8 +22,8 @@ void sighandler(int sig)
 		if (c == '\0')
 		{
 			ft_printf("%s", g_msg);
-			g_msg = ft_strdup("");
 			free(g_msg);
+			g_msg = ft_strdup("");
 		}
 		else
 			g_msg = ft_strjoin(g_msg, ctostr);

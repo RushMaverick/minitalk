@@ -1,6 +1,3 @@
-#include <signal.h>
-#include <unistd.h> //getpid, sleep
-#include <stdlib.h>
 #include "../includes/libft.h"
 
 static void msghandler(int pid, char *msg)
@@ -14,12 +11,12 @@ static void msghandler(int pid, char *msg)
 		{
 			if ((*msg & bin_rep >> i) == 0)
 			{
-				kill(pid, SIGUSR1);
+				kill(pid, SIGUSR1); //Sends a signal to signal that bit is 0.
 				usleep(256);
 			}
 			else
 			{
-				kill(pid, SIGUSR2);
+				kill(pid, SIGUSR2); //Sends a signal to signal that bit is 1.
 				usleep(256);
 			}
 			i++;
@@ -48,23 +45,20 @@ int main (int argc, char *argv[])
 	int pid;
 	char *msg;
 
-	if (argc <= 1)
+	if (argc != 3)
 	{
-		ft_printf("%s\n", "No arguments given.");
+		ft_printf("No arguments given or too many, idk.\n");
 		return (0);
 	}
-
+	
 	pid = ft_atoi(argv[1]);
-
+	if (pid == 0 || kill(pid, 0) == -1)
+	{
+		ft_printf("Invalid PID\n");
+		return (0);
+	}
 	msg = argv[2];
 
-	if (argc <= 2)
-	{
-		ft_printf("%s\n", "Remember to attach a message.");
-		return (0);
-	}
-	if (kill(pid, 0) == -1)
-		ft_printf("%s\n", "Invalid PID.");
 	handle_string(pid, msg);
 	
 	return (0);
