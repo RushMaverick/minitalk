@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
 #include "../includes/libft.h"
@@ -22,10 +21,12 @@ void sighandler(int sig)
 		ctostr[0] = c;
 		if (c == '\0')
 		{
-			ft_printf("%s\n", g_msg); //CHANGE TO OWN PRINTF
+			ft_printf("%s", g_msg);
+			g_msg = ft_strdup("");
 			free(g_msg);
 		}
-		g_msg = ft_strjoin(g_msg, ctostr);
+		else
+			g_msg = ft_strjoin(g_msg, ctostr);
 		count = 0;
 		c = 0;
 		bin_rep = 0b10000000;
@@ -53,4 +54,5 @@ int main (void)
 	{
 
 	}
+	return (0);
 }

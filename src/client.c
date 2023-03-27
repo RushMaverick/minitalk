@@ -1,5 +1,4 @@
 #include <signal.h>
-#include <stdio.h>
 #include <unistd.h> //getpid, sleep
 #include <stdlib.h>
 #include "../includes/libft.h"
@@ -56,6 +55,7 @@ int main (int argc, char *argv[])
 	}
 
 	pid = ft_atoi(argv[1]);
+
 	msg = argv[2];
 
 	if (argc <= 2)
