@@ -1,2 +1,3 @@
 # minitalk
-we talk minily
+
+we talk minily about minily tingz
