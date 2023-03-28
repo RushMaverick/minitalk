@@ -40,10 +40,16 @@ static void handle_string(int pid, char *msg)
 	}
 }
 
+static void sighandler(int sig)
+{
+	if (sig == SIGUSR1)
+		ft_printf("Message sent success");
+}
 int main (int argc, char *argv[])
 {
 	int pid;
 	char *msg;
+	struct sigaction sa;
 
 	if (argc != 3)
 	{
@@ -58,8 +64,14 @@ int main (int argc, char *argv[])
 		return (0);
 	}
 	msg = argv[2];
+	sa.sa_handler = &sighandler;
+
+	sa.sa_flags = SA_SIGINFO;
+
+	sigaction(SIGUSR1, &sa, NULL);
 
 	handle_string(pid, msg);
-	
+
+	pause();
 	return (0);
 }
