@@ -1,7 +1,7 @@
 NAME = Minitalk
 
-S = src/
-I = includes/
+S = src
+I = includes
 
 CLIENT = client
 SERVER = server

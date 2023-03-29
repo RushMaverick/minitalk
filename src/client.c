@@ -6,11 +6,12 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:08:55 by rrask             #+#    #+#             */
-/*   Updated: 2023/03/28 19:27:19 by rrask            ###   ########.fr       */
+/*   Updated: 2023/03/29 10:40:13 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+#include "minitalk.h"
 
 static void	msghandler(int pid, char *msg)
 {

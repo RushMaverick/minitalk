@@ -6,11 +6,12 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:09:00 by rrask             #+#    #+#             */
-/*   Updated: 2023/03/28 19:43:05 by rrask            ###   ########.fr       */
+/*   Updated: 2023/03/29 10:40:22 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+#include "minitalk_bonus.h"
 
 static const char	*g_msg;
 
