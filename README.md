@@ -14,7 +14,7 @@ Minitalk is a simple communication program consisting of a client and a server, 
 1. Clone the repository:
 
 ```bash
-git clone <repository_url>
+git clone (https://github.com/RushMaverick/minitalk.git)
 ```
 
 2. Navigate to the project directory:
@@ -70,11 +70,3 @@ Replace `[server_PID]` with the PID of the server obtained during server startup
 Replace `[server_PID]` with the server's PID obtained in step 2.
 
 4. The server should promptly display the received message.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-Feel free to modify the README to suit your project's specific details or preferences.
