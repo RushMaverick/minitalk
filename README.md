@@ -14,7 +14,7 @@ Minitalk is a simple communication program consisting of a client and a server, 
 1. Clone the repository:
 
 ```bash
-git clone (https://github.com/RushMaverick/minitalk.git)
+git clone https://github.com/RushMaverick/minitalk.git
 ```
 
 2. Navigate to the project directory:
