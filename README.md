@@ -1,5 +1,3 @@
-Certainly! Here's a README for your Minitalk project:
-
 # Minitalk
 
 Minitalk is a simple communication program consisting of a client and a server, written in C for UNIX environments. The program enables communication between processes using UNIX signals, specifically SIGUSR1 and SIGUSR2.
